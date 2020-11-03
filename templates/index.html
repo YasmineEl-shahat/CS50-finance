@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portofolio
+{% endblock %}
+
+{% block main %}
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for holding in holdings %}
+                <tr>
+                    <td>{{holding["symbol"]}}</td>
+                    <td>{{holding["name"]}}</td>
+                    <td>{{holding["shares"]}}</td>
+                    <td>{{holding["price"]}}</td>
+                    <td>{{holding["total"]}}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4"></td>
+                <td>{{grand_total}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
